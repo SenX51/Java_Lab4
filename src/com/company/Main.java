@@ -9,17 +9,6 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static Human GetHumanInfo(String line)
-    {
-        String split[] = line.split(";");
-        for(String str : split)
-            System.out.print(str + " ");
-        System.out.println(line);
-        //Human human = new Human(split);
-        //return human;
-        return null;
-    }
-
     public static void main(String[] args)
     {
         LinkedList<Human> list = new LinkedList<Human>();
@@ -30,11 +19,12 @@ public class Main {
         try
         {
             Scanner read = new Scanner(file);
+            read.useDelimiter("\n"); // без этого строка считывалась только до пробела
             read.nextLine();
             while (read.hasNext())
             {
-                list.add(GetHumanInfo(read.next()));
-                //list.getLast().PrintInfo();
+                list.add(new Human(read.next()));
+                list.getLast().PrintInfo();
             }
             read.close();
         }
@@ -42,5 +32,6 @@ public class Main {
         {
             System.out.println(e);
         }
+        System.out.println("Количество отделений: " + Department.departments.size());
     }
 }

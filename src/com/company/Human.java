@@ -10,16 +10,21 @@ public class Human
 	private Float salary;
 	private String birthDate;
 
-	public Human(String[] line)
+	/**
+	 * Конструктор, принимающий на вход строку из csv файла и вытскиваиющий из него информацию
+	 * @param line строка из csv файла
+	 */
+	public Human(String line)
 	{
+		String split[] = line.split(";");
 		try
 		{
-		id = Integer.parseInt(line[0]);
-		name = line[1];
-		gender = line[2];
-		birthDate = line[3];
-		department = Department.TryAssign(line[4]);
-		salary = Float.parseFloat(line[5]);
+		id = Integer.parseInt(split[0]);
+		name = split[1];
+		gender = split[2];
+		birthDate = split[3];
+		department = Department.TryAssign(split[4]);
+		salary = Float.parseFloat(split[5]);
 		}
 		catch (ArrayIndexOutOfBoundsException e)
 		{

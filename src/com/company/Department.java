@@ -14,8 +14,11 @@ public class Department
 		name = _name;
 	}
 
-
-
+	/**
+	 * Метод, присваивающий уже существующее отделение с таким же названием/создающий новое
+	 * @param dep название отделения
+	 * @return
+	 */
 	public static Department TryAssign(String dep)
 	{
 		for (Department d : departments)
