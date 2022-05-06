@@ -12,10 +12,11 @@ public class Main {
     public static Human GetHumanInfo(String line)
     {
         String split[] = line.split(";");
-        for (String s : split)
-        {
-            System.out.println(s);
-        }
+        for(String str : split)
+            System.out.print(str + " ");
+        System.out.println(line);
+        //Human human = new Human(split);
+        //return human;
         return null;
     }
 
@@ -33,8 +34,7 @@ public class Main {
             while (read.hasNext())
             {
                 list.add(GetHumanInfo(read.next()));
-                //System.out.println(read.nextLine());
-                in.nextLine();
+                //list.getLast().PrintInfo();
             }
             read.close();
         }
